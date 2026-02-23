@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NYC Cleaning Lead Rescue</title>
+  <meta name="description" content="We help NYC cleaning companies recover missed calls and book more jobs with instant text-back, lead qualification, and booking links." />
+  <style>
+    :root{
+      --bg:#0b1020;
+      --card:#111a33;
+      --text:#e8eeff;
+      --muted:#b7c3ff;
+      --accent:#7c5cff;
+      --accent2:#2ee59d;
+      --border:rgba(255,255,255,.12);
+      --shadow: 0 18px 60px rgba(0,0,0,.35);
+      --radius:18px;
+      --max:1080px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 20% -10%, rgba(124,92,255,.35), transparent 60%),
+        radial-gradient(900px 500px at 100% 10%, rgba(46,229,157,.18), transparent 55%),
+        radial-gradient(700px 500px at 40% 110%, rgba(124,92,255,.18), transparent 60%),
+        var(--bg);
+      line-height:1.5;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 64px}
+    header{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:10px 0 24px;
+    }
+    .brand{display:flex; gap:10px; align-items:center; text-decoration:none}
+    .logo{
+      width:40px; height:40px; border-radius:12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: var(--shadow);
+    }
+    .brand b{letter-spacing:.2px}
+    nav{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
+    nav a{opacity:.9; text-decoration:none; padding:8px 10px; border-radius:12px}
+    nav a:hover{background:rgba(255,255,255,.06)}
+    .hero{
+      display:grid; grid-template-columns: 1.25fr .75fr;
+      gap:18px; align-items:stretch;
+    }
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+      nav{justify-content:flex-start}
+    }
+    .card{
+      background: rgba(17,26,51,.92);
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:22px;
+    }
+    h1{
+      margin:0 0 10px; font-size:42px; line-height:1.1;
+      letter-spacing:-.6px;
+    }
+    @media (max-width: 520px){ h1{font-size:34px} }
+    .sub{color:var(--muted); margin:0 0 18px; font-size:16px}
+    .chips{display:flex; flex-wrap:wrap; gap:10px; margin:16px 0 0}
+    .chip{
+      font-size:13px; color:rgba(255,255,255,.92);
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.04);
+      padding:8px 10px; border-radius:999px;
+    }
+    .btns{display:flex; gap:12px; flex-wrap:wrap; margin-top:16px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 14px; border-radius:14px;
+      text-decoration:none; font-weight:700;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.06);
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, var(--accent), #5a8bff);
+      border:none;
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .mini{
+      color:var(--muted); font-size:13px; margin-top:12px
+    }
+    .kpi{
+      display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px
+    }
+    .kpi .box{
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:14px;
+      background:rgba(255,255,255,.04);
+    }
+    .kpi .n{font-size:22px; font-weight:800}
+    .kpi .t{color:var(--muted); font-size:12px}
+    section{margin-top:18px}
+    h2{margin:0 0 10px; font-size:22px}
+    .grid3{display:grid; grid-template-columns:repeat(3, 1fr); gap:12px}
+    @media (max-width: 900px){ .grid3{grid-template-columns:1fr} }
+    .step{
+      padding:16px; border-radius:16px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.04);
+    }
+    .step b{display:block; margin-bottom:6px}
+    ul{margin:10px 0 0 18px; color:var(--muted)}
+    .pricing{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
+    @media (max-width: 900px){ .pricing{grid-template-columns:1fr} }
+    .plan{
+      padding:16px; border-radius:16px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.04);
+    }
+    .plan .name{font-weight:800}
+    .plan .price{font-size:26px; font-weight:900; margin:8px 0}
+    .plan .small{color:var(--muted); font-size:13px}
+    .plan .tag{
+      display:inline-block; margin-top:10px;
+      padding:6px 10px; border-radius:999px;
+      background:rgba(124,92,255,.18);
+      border:1px solid rgba(124,92,255,.35);
+      font-size:12px;
+    }
+    .faq{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+    @media (max-width: 900px){ .faq{grid-template-columns:1fr} }
+    details{
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.04);
+      border-radius:16px; padding:14px;
+    }
+    details summary{cursor:pointer; font-weight:700}
+    details p{color:var(--muted); margin:10px 0 0}
+    footer{
+      margin-top:24px; color:var(--muted);
+      font-size:12px; opacity:.95
+    }
+    .notice{
+      border:1px dashed rgba(255,255,255,.22);
+      background:rgba(0,0,0,.18);
+      border-radius:16px;
+      padding:14px;
+      color:var(--muted);
+      font-size:13px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="#top" id="top">
+        <span class="logo" aria-hidden="true"></span>
+        <div>
+          <b>NYC Cleaning Lead Rescue</b><br/>
+          <span style="color:var(--muted); font-size:12px;">Manhattan + Staten Island</span>
+        </div>
+      </a>
+      <nav>
+        <a href="#how">How it works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Book</a>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <div class="card">
+        <h1>Turn missed calls into booked cleanings.</h1>
+        <p class="sub">
+          We install and manage an instant <b>text-back + lead intake + booking</b> flow for NYC cleaning companies
+          (residential + commercial), so you stop losing jobs while you're busy cleaning.
+        </p>
+
+        <div class="btns">
+          <!-- TODO: Replace with your Calendly link -->
+          <a class="btn primary" href="https://calendly.com/YOUR-LINK-HERE" target="_blank" rel="noopener">Book a 10-min demo</a>
+          <!-- TODO: Replace with your email -->
+          <a class="btn" href="mailto:YOURNAME@EMAIL.COM?subject=NYC%20Cleaning%20Lead%20Rescue%20Info">Email us</a>
+        </div>
+
+        <div class="chips">
+          <span class="chip">Instant missed-call text-back</span>
+          <span class="chip">Residential + commercial routing</span>
+          <span class="chip">Booking link + follow-ups</span>
+          <span class="chip">Review requests (optional)</span>
+        </div>
+
+        <p class="mini">
+          Simple, done-for-you setup. No long contracts. Start with a short pilot.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>What you get</h2>
+        <div class="kpi">
+          <div class="box">
+            <div class="n">5 sec</div>
+            <div class="t">text-back after missed calls</div>
+          </div>
+          <div class="box">
+            <div class="n">2 paths</div>
+            <div class="t">residential + commercial leads</div>
+          </div>
+          <div class="box">
+            <div class="n">2–3</div>
+            <div class="t">automated follow-ups</div>
+          </div>
+          <div class="box">
+            <div class="n">Weekly</div>
+            <div class="t">lead recovery report</div>
+          </div>
+        </div>
+        <p class="mini">
+          Your team stays focused on cleaning. The system handles the first response and booking steps.
+        </p>
+        <div class="notice">
+          <b>Note:</b> Messaging includes opt-out (“STOP”) and is designed for operational lead follow-up, not spam blasts.
+        </div>
+      </div>
+    </div>
+
+    <section id="how" class="card">
+      <h2>How it works</h2>
+      <div class="grid3">
+        <div class="step">
+          <b>1) Missed call → instant text</b>
+          Your missed calls get an immediate “Sorry we missed you” SMS.
+        </div>
+        <div class="step">
+          <b>2) Qualify in 5 questions</b>
+          Residential vs commercial, borough, size, timing, and contact info.
+        </div>
+        <div class="step">
+          <b>3) Book + follow up</b>
+          A booking link is sent automatically, with polite follow-ups if they don’t reply.
+        </div>
+      </div>
+      <ul>
+        <li>Works for Manhattan + Staten Island (and you can expand later).</li>
+        <li>Set up in 24–48 hours once we have your details.</li>
+      </ul>
+    </section>
+
+    <section id="pricing" class="card">
+      <h2>Pricing</h2>
+      <p class="sub">Start with a small pilot, then choose the monthly plan that fits your volume.</p>
+      <div class="pricing">
+        <div class="plan">
+          <div class="name">Pilot (7 days)</div>
+          <div class="price">$199</div>
+          <div class="small">One-time setup + trial run</div>
+          <ul>
+            <li>Missed-call text-back</li>
+            <li>Lead intake questions</li>
+            <li>Booking link delivery</li>
+          </ul>
+          <span class="tag">Fast proof</span>
+        </div>
+        <div class="plan" style="outline: 2px solid rgba(124,92,255,.35);">
+          <div class="name">Standard</div>
+          <div class="price">$699<span class="small">/mo</span></div>
+          <div class="small">Most popular for busy cleaners</div>
+          <ul>
+            <li>Everything in Pilot</li>
+            <li>2 automated follow-ups</li>
+            <li>Weekly lead recovery report</li>
+          </ul>
+          <span class="tag">Best value</span>
+        </div>
+        <div class="plan">
+          <div class="name">Pro</div>
+          <div class="price">$1,199<span class="small">/mo</span></div>
+          <div class="small">Adds reviews + commercial flow</div>
+          <ul>
+            <li>Everything in Standard</li>
+            <li>Review request texts</li>
+            <li>Commercial quote workflow</li>
+          </ul>
+          <span class="tag">Scale</span>
+        </div>
+      </div>
+      <p class="mini">Prices are starting points. If you have high call volume, we’ll quote a custom tier.</p>
+    </section>
+
+    <section id="faq" class="card">
+      <h2>FAQ</h2>
+      <div class="faq">
+        <details>
+          <summary>Do I need new software?</summary>
+          <p>No. We can start simple and add automation as needed. You keep your existing workflow.</p>
+        </details>
+        <details>
+          <summary>Will this annoy customers?</summary>
+          <p>It’s a quick operational text-back with an opt-out. It helps customers get booked faster.</p>
+        </details>
+        <details>
+          <summary>Can it handle commercial cleaning?</summary>
+          <p>Yes. Commercial leads get routed to a quote/walkthrough flow instead of a simple booking link.</p>
+        </details>
+        <details>
+          <summary>How fast can we launch?</summary>
+          <p>Usually 24–48 hours after you provide your booking link, service areas, and basic details.</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="contact" class="card">
+      <h2>Book a demo</h2>
+      <p class="sub">We’ll show the exact text flow and how it fits your residential + commercial bookings.</p>
+      <div class="btns">
+        <!-- TODO: Replace with your Calendly link -->
+        <a class="btn primary" href="https://calendly.com/YOUR-LINK-HERE" target="_blank" rel="noopener">Book a 10-min demo</a>
+        <!-- TODO: Replace with your email -->
+        <a class="btn" href="mailto:YOURNAME@EMAIL.COM?subject=Demo%20Request%20-%20NYC%20Cleaning%20Lead%20Rescue">Email us</a>
+      </div>
+      <p class="mini">
+        Prefer text? Add your business phone here once you have it: <b>(000) 000-0000</b>
+      </p>
+    </section>
+
+    <footer>
+      © <span id="year"></span> NYC Cleaning Lead Rescue. All rights reserved.<br/>
+      This site describes operational lead follow-up and appointment booking assistance. No guarantees of revenue.
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
