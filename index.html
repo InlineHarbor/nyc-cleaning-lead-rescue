@@ -3,16 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NYC Cleaning Lead Rescue</title>
-  <meta name="description" content="We help NYC cleaning companies recover missed calls and book more jobs with instant text-back, lead qualification, and booking links." />
+  <title>Inline Harbor — Booking Ops (NYC Cleaning)</title>
+  <meta name="description" content="Inline Harbor Booking Ops helps NYC cleaning companies recover missed calls and book more jobs with instant text-back, lead intake, and booking links." />
   <style>
     :root{
       --bg:#0b1020;
       --card:#111a33;
       --text:#e8eeff;
       --muted:#b7c3ff;
-      --accent:#7c5cff;
-      --accent2:#2ee59d;
       --border:rgba(255,255,255,.12);
       --shadow: 0 18px 60px rgba(0,0,0,.35);
       --radius:18px;
@@ -24,9 +22,9 @@
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
       color:var(--text);
       background:
-        radial-gradient(1200px 600px at 20% -10%, rgba(124,92,255,.35), transparent 60%),
-        radial-gradient(900px 500px at 100% 10%, rgba(46,229,157,.18), transparent 55%),
-        radial-gradient(700px 500px at 40% 110%, rgba(124,92,255,.18), transparent 60%),
+        radial-gradient(1200px 600px at 20% -10%, rgba(255,255,255,.08), transparent 60%),
+        radial-gradient(900px 500px at 100% 10%, rgba(255,255,255,.06), transparent 55%),
+        radial-gradient(700px 500px at 40% 110%, rgba(255,255,255,.05), transparent 60%),
         var(--bg);
       line-height:1.5;
     }
@@ -38,9 +36,12 @@
     }
     .brand{display:flex; gap:10px; align-items:center; text-decoration:none}
     .logo{
-      width:40px; height:40px; border-radius:12px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: var(--shadow);
+      width:40px; height:40px;
+      display:inline-flex;
+      align-items:center; justify-content:center;
+      border-radius:12px;
+      box-shadow: 0 14px 40px rgba(0,0,0,.35);
+      overflow:hidden;
     }
     .brand b{letter-spacing:.2px}
     nav{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
@@ -83,8 +84,8 @@
       background:rgba(255,255,255,.06);
     }
     .btn.primary{
-      background: linear-gradient(135deg, var(--accent), #5a8bff);
-      border:none;
+      background: rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.18);
     }
     .btn:hover{transform: translateY(-1px)}
     .mini{
@@ -99,7 +100,7 @@
       padding:14px;
       background:rgba(255,255,255,.04);
     }
-    .kpi .n{font-size:22px; font-weight:800}
+    .kpi .n{font-size:14px; font-weight:800; letter-spacing:.2px}
     .kpi .t{color:var(--muted); font-size:12px}
     section{margin-top:18px}
     h2{margin:0 0 10px; font-size:22px}
@@ -122,12 +123,13 @@
     .plan .name{font-weight:800}
     .plan .price{font-size:26px; font-weight:900; margin:8px 0}
     .plan .small{color:var(--muted); font-size:13px}
-    .plan .tag{
+    .tag{
       display:inline-block; margin-top:10px;
       padding:6px 10px; border-radius:999px;
-      background:rgba(124,92,255,.18);
-      border:1px solid rgba(124,92,255,.35);
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
       font-size:12px;
+      color:rgba(255,255,255,.9);
     }
     .faq{display:grid; grid-template-columns:1fr 1fr; gap:12px}
     @media (max-width: 900px){ .faq{grid-template-columns:1fr} }
@@ -157,9 +159,17 @@
   <div class="wrap">
     <header>
       <a class="brand" href="#top" id="top">
-        <span class="logo" aria-hidden="true"></span>
+        <span class="logo" aria-hidden="true">
+          <svg viewBox="0 0 64 64" width="40" height="40" role="img" aria-label="">
+            <rect x="7" y="7" width="50" height="50" rx="14" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.22)" />
+            <path d="M22 20v24" stroke="rgba(255,255,255,.92)" stroke-width="3.2" stroke-linecap="round"/>
+            <path d="M34 20v24" stroke="rgba(255,255,255,.92)" stroke-width="3.2" stroke-linecap="round"/>
+            <path d="M34 32h10" stroke="rgba(255,255,255,.92)" stroke-width="3.2" stroke-linecap="round"/>
+            <path d="M44 20v24" stroke="rgba(255,255,255,.92)" stroke-width="3.2" stroke-linecap="round"/>
+          </svg>
+        </span>
         <div>
-          <b>NYC Cleaning Lead Rescue</b><br/>
+          <b>Inline Harbor — Booking Ops</b><br/>
           <span style="color:var(--muted); font-size:12px;">Manhattan + Staten Island</span>
         </div>
       </a>
@@ -174,14 +184,16 @@
     <div class="hero">
       <div class="card">
         <h1>Turn missed calls into booked cleanings.</h1>
+
         <p class="sub">
-          We install and manage an instant <b>text-back + lead intake + booking</b> flow for NYC cleaning companies
-          (residential + commercial), so you stop losing jobs while you're busy cleaning.
+          Luxury-simple booking operations for <b>NYC cleaning companies</b>.
+          We install and manage instant <b>text-back + lead intake + booking</b> for
+          <b>residential + commercial</b> cleaning, so missed calls turn into booked jobs.
         </p>
 
         <div class="btns">
           <a class="btn primary" href="https://calendly.com/inlineharborcreations/10-minute-demo" target="_blank" rel="noopener">Book a 10-min demo</a>
-          <a class="btn" href="mailto:inlineharborcreations@gmail.com?subject=NYC%20Cleaning%20Lead%20Rescue%20Info">Email us</a>
+          <a class="btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=inlineharborcreations@gmail.com&su=NYC%20Cleaning%20Lead%20Rescue%20Info" target="_blank" rel="noopener">Email us</a>
         </div>
 
         <div class="chips">
@@ -200,19 +212,19 @@
         <h2>Contact</h2>
         <div class="kpi">
           <div class="box">
-            <div class="n">Call/Text</div>
+            <div class="n">CALL / TEXT</div>
             <div class="t">(917) 426-6063</div>
           </div>
           <div class="box">
-            <div class="n">Email</div>
+            <div class="n">EMAIL</div>
             <div class="t">inlineharborcreations@gmail.com</div>
           </div>
           <div class="box">
-            <div class="n">Service area</div>
+            <div class="n">SERVICE AREA</div>
             <div class="t">Manhattan + Staten Island</div>
           </div>
           <div class="box">
-            <div class="n">Demo</div>
+            <div class="n">DEMO</div>
             <div class="t">10 minutes</div>
           </div>
         </div>
@@ -262,7 +274,7 @@
           </ul>
           <span class="tag">Fast proof</span>
         </div>
-        <div class="plan" style="outline: 2px solid rgba(124,92,255,.35);">
+        <div class="plan" style="outline: 2px solid rgba(255,255,255,.18);">
           <div class="name">Standard</div>
           <div class="price">$699<span class="small">/mo</span></div>
           <div class="small">Most popular for busy cleaners</div>
@@ -315,7 +327,7 @@
       <p class="sub">We’ll show the exact text flow and how it fits your residential + commercial bookings.</p>
       <div class="btns">
         <a class="btn primary" href="https://calendly.com/inlineharborcreations/10-minute-demo" target="_blank" rel="noopener">Book a 10-min demo</a>
-        <a class="btn" href="mailto:inlineharborcreations@gmail.com?subject=Demo%20Request%20-%20NYC%20Cleaning%20Lead%20Rescue">Email us</a>
+        <a class="btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=inlineharborcreations@gmail.com&su=Demo%20Request%20-%20NYC%20Cleaning%20Lead%20Rescue" target="_blank" rel="noopener">Email us</a>
       </div>
       <p class="mini">
         Prefer call/text? <b>(917) 426-6063</b>
@@ -323,7 +335,7 @@
     </section>
 
     <footer>
-      © <span id="year"></span> NYC Cleaning Lead Rescue. All rights reserved.<br/>
+      © <span id="year"></span> Inline Harbor — Booking Ops. All rights reserved.<br/>
       This site describes operational lead follow-up and appointment booking assistance. No guarantees of revenue.
     </footer>
   </div>
