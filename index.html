@@ -2,372 +2,914 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Inline Harbor — Booking Ops (NYC Cleaning)</title>
-  <meta name="description" content="Inline Harbor Booking Ops helps NYC cleaning companies recover missed calls and book more jobs with instant text-back, lead intake, and booking links." />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Inline Harbor Creations | Missed Call Lead Rescue</title>
+  <meta name="description" content="Inline Harbor Creations helps cleaning companies turn missed calls into booked jobs with instant text-back, lead capture, and booking follow-up." />
   <style>
     :root{
-      --bg:#0b1020;
-      --card:#111a33;
-      --text:#e8eeff;
-      --muted:#b7c3ff;
-      --border:rgba(255,255,255,.12);
-      --shadow: 0 18px 60px rgba(0,0,0,.35);
+      --bg:#0a0a0b;
+      --card:#111214;
+      --card-2:#17181c;
+      --line:rgba(255,255,255,.08);
+      --text:#f4f4f5;
+      --muted:#b8b8be;
+      --gold:#d4af37;
+      --gold-soft:#f0d982;
+      --btn:#cfcfd4;
+      --btn-text:#111214;
+      --shadow:0 14px 50px rgba(0,0,0,.45);
       --radius:18px;
-      --max:1080px;
+      --max:1120px;
     }
+
     *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
       color:var(--text);
       background:
-        radial-gradient(1200px 600px at 20% -10%, rgba(255,255,255,.08), transparent 60%),
-        radial-gradient(900px 500px at 100% 10%, rgba(255,255,255,.06), transparent 55%),
-        radial-gradient(700px 500px at 40% 110%, rgba(255,255,255,.05), transparent 60%),
+        radial-gradient(900px 500px at 10% -10%, rgba(212,175,55,.08), transparent 60%),
+        radial-gradient(700px 500px at 90% 0%, rgba(255,255,255,.03), transparent 60%),
         var(--bg);
       line-height:1.5;
     }
+
     a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 64px}
-    header{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:14px; padding:10px 0 24px;
+    img{max-width:100%;display:block}
+
+    .container{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:0 18px;
     }
-    .brand{display:flex; gap:10px; align-items:center; text-decoration:none}
-    .logo{
-      width:40px; height:40px;
-      display:inline-flex;
-      align-items:center; justify-content:center;
+
+    /* Top header */
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:100;
+      backdrop-filter: blur(10px);
+      background:rgba(10,10,11,.78);
+      border-bottom:1px solid var(--line);
+    }
+
+    .topbar-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      min-height:72px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      min-width:0;
+    }
+
+    .brand-logo{
+      width:46px;
+      height:46px;
       border-radius:12px;
-      box-shadow: 0 14px 40px rgba(0,0,0,.35);
-      overflow:hidden;
-    }
-    .brand b{letter-spacing:.2px}
-    nav{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
-    nav a{opacity:.9; text-decoration:none; padding:8px 10px; border-radius:12px}
-    nav a:hover{background:rgba(255,255,255,.06)}
-    .hero{
-      display:grid; grid-template-columns: 1.25fr .75fr;
-      gap:18px; align-items:stretch;
-    }
-    @media (max-width: 900px){
-      .hero{grid-template-columns:1fr}
-      nav{justify-content:flex-start}
-    }
-    .card{
-      background: rgba(17,26,51,.92);
-      border:1px solid var(--border);
-      border-radius: var(--radius);
+      object-fit:contain;
+      background:#0f1012;
+      border:1px solid rgba(255,255,255,.06);
+      padding:4px;
       box-shadow: var(--shadow);
+    }
+
+    .brand-text{
+      min-width:0;
+    }
+
+    .brand-text .name{
+      font-weight:700;
+      letter-spacing:.2px;
+      color:var(--text);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      max-width:230px;
+    }
+
+    .brand-text .sub{
+      font-size:12px;
+      color:var(--muted);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      max-width:230px;
+    }
+
+    .top-cta{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+      border-radius:12px;
+      padding:11px 14px;
+      font-weight:600;
+      border:1px solid var(--line);
+      transition:.15s ease;
+      cursor:pointer;
+    }
+
+    .btn:hover{transform:translateY(-1px)}
+    .btn.gold{
+      background:linear-gradient(180deg,var(--gold-soft),var(--gold));
+      color:#111214;
+      border:none;
+    }
+    .btn.ghost{
+      background:rgba(255,255,255,.03);
+      color:var(--text);
+    }
+    .btn.gray{
+      background:var(--btn);
+      color:var(--btn-text);
+      border:none;
+    }
+
+    /* Banner nav (your requested section banner) */
+    .section-banner-wrap{
+      padding-top:16px;
+    }
+
+    .section-banner{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:10px;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:10px;
+      box-shadow: var(--shadow);
+    }
+
+    .section-banner a{
+      text-decoration:none;
+      text-align:center;
+      padding:12px 10px;
+      border-radius:12px;
+      background:var(--card-2);
+      border:1px solid rgba(255,255,255,.04);
+      color:var(--text);
+      font-weight:600;
+      font-size:14px;
+    }
+
+    .section-banner a:hover{
+      border-color:rgba(212,175,55,.35);
+      color:var(--gold-soft);
+    }
+
+    /* Hero */
+    .hero{
+      padding:24px 0 16px;
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:16px;
+      align-items:stretch;
+    }
+
+    .panel{
+      background:linear-gradient(180deg,var(--card),#0e0f12);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
       padding:22px;
     }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      color:var(--gold-soft);
+      border:1px solid rgba(212,175,55,.22);
+      background:rgba(212,175,55,.08);
+      border-radius:999px;
+      padding:6px 10px;
+      font-size:12px;
+      font-weight:600;
+      margin-bottom:12px;
+    }
+
     h1{
-      margin:0 0 10px; font-size:42px; line-height:1.1;
+      margin:0 0 10px;
+      font-size:clamp(30px,4vw,50px);
+      line-height:1.07;
       letter-spacing:-.6px;
     }
-    @media (max-width: 520px){ h1{font-size:34px} }
-    .sub{color:var(--muted); margin:0 0 18px; font-size:16px}
-    .chips{display:flex; flex-wrap:wrap; gap:10px; margin:16px 0 0}
+
+    .hero p{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .hero-actions{
+      margin-top:16px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .chips{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:14px;
+    }
+
     .chip{
-      font-size:13px; color:rgba(255,255,255,.92);
-      border:1px solid var(--border);
-      background:rgba(255,255,255,.04);
-      padding:8px 10px; border-radius:999px;
-    }
-    .btns{display:flex; gap:12px; flex-wrap:wrap; margin-top:16px}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:12px 14px; border-radius:14px;
-      text-decoration:none; font-weight:700;
-      border:1px solid var(--border);
-      background:rgba(255,255,255,.06);
-    }
-    .btn.primary{
-      background: rgba(255,255,255,.12);
-      border:1px solid rgba(255,255,255,.18);
-    }
-    .btn:hover{transform: translateY(-1px)}
-    .mini{
-      color:var(--muted); font-size:13px; margin-top:12px
-    }
-    .kpi{
-      display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px
-    }
-    .kpi .box{
-      border:1px solid var(--border);
-      border-radius:16px;
-      padding:14px;
-      background:rgba(255,255,255,.04);
-    }
-    .kpi .n{font-size:14px; font-weight:800; letter-spacing:.2px}
-    .kpi .t{color:var(--muted); font-size:12px}
-    section{margin-top:18px}
-    h2{margin:0 0 10px; font-size:22px}
-    .grid3{display:grid; grid-template-columns:repeat(3, 1fr); gap:12px}
-    @media (max-width: 900px){ .grid3{grid-template-columns:1fr} }
-    .step{
-      padding:16px; border-radius:16px;
-      border:1px solid var(--border);
-      background:rgba(255,255,255,.04);
-    }
-    .step b{display:block; margin-bottom:6px}
-    ul{margin:10px 0 0 18px; color:var(--muted)}
-    .pricing{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
-    @media (max-width: 900px){ .pricing{grid-template-columns:1fr} }
-    .plan{
-      padding:16px; border-radius:16px;
-      border:1px solid var(--border);
-      background:rgba(255,255,255,.04);
-    }
-    .plan .name{font-weight:800}
-    .plan .price{font-size:26px; font-weight:900; margin:8px 0}
-    .plan .small{color:var(--muted); font-size:13px}
-    .plan .price a{color:inherit;text-decoration:none;}
-    .plan .price a:hover{text-decoration:underline;}
-    .tag{
-      display:inline-block; margin-top:10px;
-      padding:6px 10px; border-radius:999px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.12);
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.02);
+      color:var(--muted);
+      border-radius:999px;
+      padding:7px 10px;
       font-size:12px;
-      color:rgba(255,255,255,.9);
     }
-    .faq{display:grid; grid-template-columns:1fr 1fr; gap:12px}
-    @media (max-width: 900px){ .faq{grid-template-columns:1fr} }
-    details{
-      border:1px solid var(--border);
-      background:rgba(255,255,255,.04);
-      border-radius:16px; padding:14px;
+
+    .stats{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
     }
-    details summary{cursor:pointer; font-weight:700}
-    details p{color:var(--muted); margin:10px 0 0}
-    footer{
-      margin-top:24px; color:var(--muted);
-      font-size:12px; opacity:.95
-    }
-    .notice{
-      border:1px dashed rgba(255,255,255,.22);
-      background:rgba(0,0,0,.18);
-      border-radius:16px;
+
+    .stat{
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:var(--card-2);
       padding:14px;
+    }
+
+    .stat .label{
+      color:var(--muted);
+      font-size:12px;
+      margin-bottom:4px;
+    }
+    .stat .value{
+      font-weight:700;
+      font-size:16px;
+    }
+
+    .notice{
+      margin-top:10px;
+      border:1px dashed rgba(212,175,55,.2);
+      background:rgba(212,175,55,.05);
+      border-radius:14px;
+      padding:12px;
       color:var(--muted);
       font-size:13px;
     }
+
+    /* Generic sections */
+    section{
+      padding:14px 0;
+    }
+
+    .section-card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:22px;
+    }
+
+    h2{
+      margin:0 0 8px;
+      font-size:26px;
+      letter-spacing:-.3px;
+    }
+
+    .section-sub{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    /* Services */
+    .grid-3{
+      margin-top:14px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+    }
+
+    .service-card{
+      background:var(--card-2);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:16px;
+    }
+
+    .service-card h3{
+      margin:0 0 8px;
+      font-size:16px;
+      color:var(--gold-soft);
+    }
+
+    .service-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* Pricing */
+    .pricing{
+      margin-top:14px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+    }
+
+    .price-card{
+      background:var(--card-2);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:16px;
+      position:relative;
+    }
+
+    .price-card.featured{
+      border-color:rgba(212,175,55,.45);
+      box-shadow:0 0 0 1px rgba(212,175,55,.2) inset;
+    }
+
+    .badge{
+      display:inline-block;
+      font-size:11px;
+      font-weight:700;
+      color:#111214;
+      background:linear-gradient(180deg,var(--gold-soft),var(--gold));
+      border-radius:999px;
+      padding:5px 8px;
+      margin-bottom:8px;
+    }
+
+    .plan{
+      margin:0;
+      font-size:15px;
+      color:var(--text);
+      font-weight:700;
+    }
+
+    .price{
+      margin:8px 0 6px;
+      font-size:34px;
+      font-weight:800;
+      line-height:1;
+    }
+
+    .price small{
+      font-size:13px;
+      color:var(--muted);
+      font-weight:600;
+    }
+
+    .price-note{
+      color:var(--muted);
+      font-size:13px;
+      margin:0 0 12px;
+    }
+
+    .price-card ul{
+      margin:0 0 12px 18px;
+      padding:0;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .price-card li{margin:4px 0}
+
+    /* About */
+    .about-wrap{
+      margin-top:14px;
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:12px;
+    }
+
+    .about-box{
+      background:var(--card-2);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:16px;
+    }
+
+    .about-box h3{
+      margin:0 0 8px;
+      font-size:16px;
+      color:var(--gold-soft);
+    }
+
+    .about-box p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .steps{
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .steps li{margin:6px 0}
+
+    /* FAQ */
+    .faq-grid{
+      margin-top:14px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+
+    details{
+      background:var(--card-2);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:14px;
+    }
+
+    summary{
+      cursor:pointer;
+      font-weight:700;
+      color:var(--text);
+    }
+
+    details p{
+      color:var(--muted);
+      font-size:13px;
+      margin:10px 0 0;
+    }
+
+    /* SMS consent section (Twilio proof page content) */
+    .consent-box{
+      margin-top:14px;
+      background:linear-gradient(180deg,#111214,#0f1012);
+      border:1px solid rgba(212,175,55,.22);
+      border-radius:16px;
+      padding:16px;
+    }
+
+    .consent-box h3{
+      margin:0 0 8px;
+      color:var(--gold-soft);
+      font-size:17px;
+    }
+
+    .consent-box p, .consent-box li{
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .consent-box ul{
+      margin:8px 0 0 18px;
+      padding:0;
+    }
+
+    .consent-example{
+      margin-top:10px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      background:var(--card-2);
+      padding:12px;
+    }
+
+    .consent-example label{
+      display:block;
+      font-size:13px;
+      color:var(--muted);
+      margin-bottom:6px;
+    }
+
+    .consent-example input[type="text"],
+    .consent-example input[type="tel"]{
+      width:100%;
+      background:#0c0d10;
+      border:1px solid var(--line);
+      color:var(--text);
+      border-radius:10px;
+      padding:10px 12px;
+      margin-bottom:10px;
+      font-size:14px;
+    }
+
+    .checkbox-row{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.45;
+      margin-bottom:10px;
+    }
+
+    .checkbox-row input{
+      margin-top:2px;
+      accent-color: var(--gold);
+    }
+
+    .fineprint{
+      color:var(--muted);
+      font-size:11px;
+      margin-top:8px;
+    }
+
+    /* Contact */
+    .contact-grid{
+      margin-top:14px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+
+    .contact-item{
+      background:var(--card-2);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:14px;
+    }
+
+    .contact-item .k{
+      color:var(--muted);
+      font-size:12px;
+      margin-bottom:4px;
+    }
+
+    .contact-item .v{
+      color:var(--text);
+      font-weight:700;
+      font-size:15px;
+      word-break:break-word;
+    }
+
+    .footer{
+      padding:20px 0 34px;
+      color:var(--muted);
+      font-size:12px;
+      text-align:center;
+    }
+
+    /* Responsive */
+    @media (max-width: 920px){
+      .hero{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .pricing{grid-template-columns:1fr}
+      .about-wrap{grid-template-columns:1fr}
+      .faq-grid{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+    }
+
+    @media (max-width: 640px){
+      .topbar-inner{
+        min-height:auto;
+        padding:10px 0;
+        align-items:flex-start;
+        flex-direction:column;
+      }
+      .top-cta{width:100%; justify-content:flex-start}
+      .section-banner{
+        grid-template-columns:1fr 1fr;
+      }
+      .brand-text .name,
+      .brand-text .sub{
+        max-width:170px;
+      }
+      .hero-actions .btn{
+        width:100%;
+      }
+    }
   </style>
 </head>
-
 <body>
-  <div class="wrap">
-    <header>
-      <a class="brand" href="#top" id="top">
-        <span class="logo" aria-hidden="true">
-          <svg viewBox="0 0 64 64" width="40" height="40" role="img" aria-label="">
-            <rect x="7" y="7" width="50" height="50" rx="14" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.22)" />
-            <path d="M22 20v24" stroke="rgba(255,255,255,.92)" stroke-width="3.2" stroke-linecap="round"/>
-            <path d="M34 20v24" stroke="rgba(255,255,255,.92)" stroke-width="3.2" stroke-linecap="round"/>
-            <path d="M34 32h10" stroke="rgba(255,255,255,.92)" stroke-width="3.2" stroke-linecap="round"/>
-            <path d="M44 20v24" stroke="rgba(255,255,255,.92)" stroke-width="3.2" stroke-linecap="round"/>
-          </svg>
-        </span>
-        <div>
-          <b>Inline Harbor — Booking Ops</b><br/>
-          <span style="color:var(--muted); font-size:12px;">Manhattan + Staten Island</span>
+
+  <!-- Top Nav -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="#top">
+        <!-- Upload your new logo file and keep this filename -->
+        <img class="brand-logo" src="inline-harbor-logo.png" alt="Inline Harbor Creations logo" />
+        <div class="brand-text">
+          <div class="name">Inline Harbor Creations</div>
+          <div class="sub">Missed Call Lead Rescue • Cleaning Businesses</div>
         </div>
       </a>
-      <nav>
-        <a href="#how">How it works</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact">Book</a>
-      </nav>
-    </header>
 
-    <div class="hero">
-      <div class="card">
-        <h1>Turn missed calls into booked cleanings.</h1>
-
-        <p class="sub">
-          Luxury-simple booking operations for <b>NYC cleaning companies</b>.
-          We install and manage instant <b>text-back + lead intake + booking</b> for
-          <b>residential + commercial</b> cleaning, so missed calls turn into booked jobs.
-        </p>
-
-        <div class="btns">
-          <a class="btn primary" href="https://calendly.com/inlineharborcreations/10-minute-demo" target="_blank" rel="noopener">Book a 10-min demo</a>
-          <a class="btn" href="https://square.link/u/wJiuVvjG" target="_blank" rel="noopener">Start 7-Day Pilot ($199)</a>
-          <a class="btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=inlineharborcreations@gmail.com&su=NYC%20Cleaning%20Lead%20Rescue%20Info" target="_blank" rel="noopener">Email us</a>
-        </div>
-
-        <div class="chips">
-          <span class="chip">Instant missed-call text-back</span>
-          <span class="chip">Residential + commercial routing</span>
-          <span class="chip">Booking link + follow-ups</span>
-          <span class="chip">Review requests (optional)</span>
-        </div>
-
-        <p class="mini">
-          Want the fastest start? Book the demo, then pay the pilot link and we begin setup within 24–48 hours.
-        </p>
-      </div>
-
-      <div class="card">
-        <h2>Contact</h2>
-        <div class="kpi">
-          <div class="box">
-            <div class="n">CALL / TEXT</div>
-            <div class="t">(929) 389-1994</div>
-          </div>
-          <div class="box">
-            <div class="n">EMAIL</div>
-            <div class="t">inlineharborcreations@gmail.com</div>
-          </div>
-          <div class="box">
-            <div class="n">SERVICE AREA</div>
-            <div class="t">Manhattan + Staten Island</div>
-          </div>
-          <div class="box">
-            <div class="n">DEMO</div>
-            <div class="t">10 minutes</div>
-          </div>
-        </div>
-        <p class="mini">
-          We’ll show the exact text-back flow and how it routes residential + commercial leads.
-        </p>
-        <div class="notice">
-          <b>Note:</b> Messaging includes opt-out (“STOP”) and is designed for operational lead follow-up, not spam blasts.
-        </div>
+      <div class="top-cta">
+        <a class="btn ghost" href="#faq">FAQ</a>
+        <a class="btn gold" href="https://calendly.com/inlineharborcreations/10-minute-demo" target="_blank" rel="noopener">Book 10-Min Demo</a>
       </div>
     </div>
-
-    <section id="how" class="card">
-      <h2>How it works</h2>
-      <div class="grid3">
-        <div class="step">
-          <b>1) Missed call → instant text</b>
-          Missed calls get an immediate “Sorry we missed you” SMS.
-        </div>
-        <div class="step">
-          <b>2) Qualify in 5 questions</b>
-          Residential vs commercial, borough, size, timing, and contact info.
-        </div>
-        <div class="step">
-          <b>3) Book + follow up</b>
-          A booking link is sent automatically, with polite follow-ups if they don’t reply.
-        </div>
-      </div>
-      <ul>
-        <li>Works for Manhattan + Staten Island (and you can expand later).</li>
-        <li>Set up in 24–48 hours once we have your details.</li>
-      </ul>
-    </section>
-
-    <section id="pricing" class="card">
-      <h2>Pricing</h2>
-      <p class="sub">Start with a small pilot, then choose the monthly plan that fits your volume.</p>
-
-      <div class="pricing">
-        <div class="plan">
-          <div class="name">Pilot (7 days)</div>
-          <div class="price">
-            <a href="https://square.link/u/wJiuVvjG" target="_blank" rel="noopener">$199</a>
-          </div>
-          <div class="small">One-time setup + trial run</div>
-          <ul>
-            <li>Missed-call text-back</li>
-            <li>Lead intake questions</li>
-            <li>Booking link delivery</li>
-          </ul>
-          <div class="btns" style="margin-top:12px;">
-            <a class="btn primary" href="https://square.link/u/wJiuVvjG" target="_blank" rel="noopener">Pay Pilot</a>
-          </div>
-          <span class="tag">Fast proof</span>
-        </div>
-
-        <div class="plan" style="outline: 2px solid rgba(255,255,255,.18);">
-          <div class="name">Standard</div>
-          <div class="price">
-            <a href="https://square.link/u/hmhJE3uZ" target="_blank" rel="noopener">$699<span class="small">/mo</span></a>
-          </div>
-          <div class="small">Most popular for busy cleaners</div>
-          <ul>
-            <li>Everything in Pilot</li>
-            <li>2 automated follow-ups</li>
-            <li>Weekly lead recovery report</li>
-          </ul>
-          <div class="btns" style="margin-top:12px;">
-            <a class="btn primary" href="https://square.link/u/hmhJE3uZ" target="_blank" rel="noopener">Pay Standard</a>
-          </div>
-          <span class="tag">Best value</span>
-        </div>
-
-        <div class="plan">
-          <div class="name">Pro</div>
-          <div class="price">
-            <a href="https://square.link/u/1xl2hPe0" target="_blank" rel="noopener">$1,199<span class="small">/mo</span></a>
-          </div>
-          <div class="small">Adds reviews + commercial flow</div>
-          <ul>
-            <li>Everything in Standard</li>
-            <li>Review request texts</li>
-            <li>Commercial quote workflow</li>
-          </ul>
-          <div class="btns" style="margin-top:12px;">
-            <a class="btn primary" href="https://square.link/u/1xl2hPe0" target="_blank" rel="noopener">Pay Pro</a>
-          </div>
-          <span class="tag">Scale</span>
-        </div>
-      </div>
-
-      <p class="mini">
-        Tip: Most clients start with the Pilot. After 7 days, we switch you to Standard or Pro.
-      </p>
-    </section>
-
-    <section id="faq" class="card">
-      <h2>FAQ</h2>
-      <div class="faq">
-        <details>
-          <summary>Do I need new software?</summary>
-          <p>No. We can start simple and add automation as needed. You keep your existing workflow.</p>
-        </details>
-        <details>
-          <summary>Will this annoy customers?</summary>
-          <p>It’s a quick operational text-back with an opt-out. It helps customers get booked faster.</p>
-        </details>
-        <details>
-          <summary>Can it handle commercial cleaning?</summary>
-          <p>Yes. Commercial leads can be routed to a quote/walkthrough flow instead of a simple booking link.</p>
-        </details>
-        <details>
-          <summary>How fast can we launch?</summary>
-          <p>Usually 24–48 hours after you provide your booking link, service areas, and basic details.</p>
-        </details>
-      </div>
-    </section>
-
-    <section id="contact" class="card">
-      <h2>Book a demo</h2>
-      <p class="sub">We’ll show the exact text flow and how it fits your residential + commercial bookings.</p>
-      <div class="btns">
-        <a class="btn primary" href="https://calendly.com/inlineharborcreations/10-minute-demo" target="_blank" rel="noopener">Book a 10-min demo</a>
-        <a class="btn" href="https://square.link/u/wJiuVvjG" target="_blank" rel="noopener">Start 7-Day Pilot ($199)</a>
-        <a class="btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=inlineharborcreations@gmail.com&su=Demo%20Request%20-%20NYC%20Cleaning%20Lead%20Rescue" target="_blank" rel="noopener">Email us</a>
-      </div>
-      <p class="mini">
-        Prefer call/text? <b>(929) 389-1994</b>
-      </p>
-    </section>
-
-    <footer>
-      © <span id="year"></span> Inline Harbor — Booking Ops. All rights reserved.<br/>
-      Call/Text: (929) 389-1994 · Email: inlineharborcreations@gmail.com<br/>
-      This site describes operational lead follow-up and appointment booking assistance. No guarantees of revenue.
-    </footer>
   </div>
 
+  <main id="top">
+    <div class="container">
+
+      <!-- Requested section banner -->
+      <div class="section-banner-wrap">
+        <nav class="section-banner" aria-label="Section navigation">
+          <a href="#pricing">Pricing</a>
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+      </div>
+
+      <!-- Hero -->
+      <section class="hero">
+        <div class="panel">
+          <div class="eyebrow">Inline Harbor Creations • Booking Ops</div>
+          <h1>Turn missed calls into booked jobs.</h1>
+          <p>
+            We help cleaning companies capture leads instantly when calls are missed —
+            with text-back follow-up, qualification prompts, and booking flow support.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn gold" href="https://calendly.com/inlineharborcreations/10-minute-demo" target="_blank" rel="noopener">Book a 10-Min Demo</a>
+            <a class="btn gray" href="https://square.link/u/wJiuVvjG" target="_blank" rel="noopener">Start 7-Day Pilot</a>
+            <a class="btn ghost" href="#contact">Contact</a>
+          </div>
+
+          <div class="chips">
+            <span class="chip">Missed Call Text-Back</span>
+            <span class="chip">Lead Capture</span>
+            <span class="chip">Booking Follow-Up</span>
+            <span class="chip">Residential + Commercial</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="stats">
+            <div class="stat">
+              <div class="label">Business</div>
+              <div class="value">Inline Harbor Creations</div>
+            </div>
+            <div class="stat">
+              <div class="label">Phone</div>
+              <div class="value">(917) 426-6063</div>
+            </div>
+            <div class="stat">
+              <div class="label">Email</div>
+              <div class="value">inlineharborcreations@gmail.com</div>
+            </div>
+            <div class="stat">
+              <div class="label">Service Focus</div>
+              <div class="value">Cleaning Companies</div>
+            </div>
+          </div>
+
+          <div class="notice">
+            Designed to help operators respond faster while crews are onsite — so leads don’t move on to the next company.
+          </div>
+        </div>
+      </section>
+
+      <!-- Services -->
+      <section id="services">
+        <div class="section-card">
+          <h2>Services</h2>
+          <p class="section-sub">What is installed and managed to improve missed-call lead capture.</p>
+
+          <div class="grid-3">
+            <div class="service-card">
+              <h3>Missed Call Text-Back</h3>
+              <p>
+                When a call is missed, a fast text response can be triggered to acknowledge the customer and keep the lead engaged.
+              </p>
+            </div>
+            <div class="service-card">
+              <h3>Lead Qualification Prompts</h3>
+              <p>
+                Simple messaging flow to collect key details like home vs office, area served, and request type.
+              </p>
+            </div>
+            <div class="service-card">
+              <h3>Booking / Follow-Up Support</h3>
+              <p>
+                Send booking links or callback prompts so the customer has a next step instead of waiting and calling a competitor.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pricing -->
+      <section id="pricing">
+        <div class="section-card">
+          <h2>Pricing</h2>
+          <p class="section-sub">Simple packages to get started and scale after proof of results.</p>
+
+          <div class="pricing">
+            <div class="price-card">
+              <p class="plan">7-Day Pilot</p>
+              <div class="price">$199</div>
+              <p class="price-note">One-time pilot to test fit and workflow.</p>
+              <ul>
+                <li>Initial setup + messaging flow</li>
+                <li>Lead capture support</li>
+                <li>Basic reporting</li>
+              </ul>
+              <a class="btn gray" href="https://square.link/u/wJiuVvjG" target="_blank" rel="noopener">Pay Pilot</a>
+            </div>
+
+            <div class="price-card featured">
+              <span class="badge">Most Popular</span>
+              <p class="plan">Standard</p>
+              <div class="price">$699 <small>/ month</small></div>
+              <p class="price-note">Ongoing lead rescue + follow-up support.</p>
+              <ul>
+                <li>Missed call response workflow</li>
+                <li>Qualification + callback follow-up</li>
+                <li>Weekly performance review</li>
+              </ul>
+              <a class="btn gold" href="https://square.link/u/hmhJE3uZ" target="_blank" rel="noopener">Pay Standard</a>
+            </div>
+
+            <div class="price-card">
+              <p class="plan">Pro</p>
+              <div class="price">$1,199 <small>/ month</small></div>
+              <p class="price-note">Advanced support for heavier volume.</p>
+              <ul>
+                <li>More advanced workflows</li>
+                <li>Priority optimization support</li>
+                <li>Expanded follow-up logic</li>
+              </ul>
+              <a class="btn gray" href="https://square.link/u/1xl2hPe0" target="_blank" rel="noopener">Pay Pro</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about">
+        <div class="section-card">
+          <h2>About</h2>
+          <p class="section-sub">Built to help service businesses stop losing warm leads while teams are busy working.</p>
+
+          <div class="about-wrap">
+            <div class="about-box">
+              <h3>What this solves</h3>
+              <p>
+                Cleaning companies often miss inbound calls while onsite. When callers do not get a quick response, many move on to the next company. This service focuses on speed, capture, and follow-up.
+              </p>
+            </div>
+
+            <div class="about-box">
+              <h3>How it works (simple version)</h3>
+              <ol class="steps">
+                <li>Caller reaches out.</li>
+                <li>If the call is missed, a quick text-back can be triggered.</li>
+                <li>Basic details are captured.</li>
+                <li>Lead is routed to booking or callback follow-up.</li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- SMS Consent / Opt-In proof section for Twilio compliance -->
+          <div class="consent-box" id="sms-consent">
+            <h3>SMS Consent / Opt-In (Service Messages)</h3>
+            <p>
+              This section documents how consent is collected for text messages related to quotes, appointments, and service follow-up.
+              It can be used as a public reference page for messaging verification.
+            </p>
+
+            <ul>
+              <li>Text messages are used for quote responses, appointment coordination, and service-related updates.</li>
+              <li>Message frequency varies based on customer request and job scheduling.</li>
+              <li>Message and data rates may apply.</li>
+              <li>Reply <strong>STOP</strong> to opt out at any time.</li>
+              <li>Reply <strong>HELP</strong> for help.</li>
+            </ul>
+
+            <div class="consent-example">
+              <label for="demo-name">Name</label>
+              <input id="demo-name" type="text" placeholder="Your name" />
+
+              <label for="demo-phone">Phone Number</label>
+              <input id="demo-phone" type="tel" placeholder="(555) 555-5555" />
+
+              <div class="checkbox-row">
+                <input id="sms-consent-check" type="checkbox" />
+                <label for="sms-consent-check" style="margin:0;">
+                  I agree to receive text messages from <strong>Inline Harbor Creations</strong> about quotes, appointments, and service follow-up.
+                  Message and data rates may apply. Reply STOP to opt out, HELP for help.
+                </label>
+              </div>
+
+              <!-- Static demo button (can be connected to your form later) -->
+              <button class="btn gray" type="button" aria-disabled="true" title="Demo only">Submit Request (Example)</button>
+
+              <div class="fineprint">
+                This example is shown as a public consent/opt-in reference. A live version can be connected to a form tool later.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq">
+        <div class="section-card">
+          <h2>FAQ</h2>
+          <p class="section-sub">Common questions from cleaning business owners.</p>
+
+          <div class="faq-grid">
+            <details>
+              <summary>Is this only for cleaning businesses?</summary>
+              <p>
+                The current focus is cleaning businesses, especially teams that miss calls while onsite and want faster lead follow-up.
+              </p>
+            </details>
+
+            <details>
+              <summary>Do I need to change my current phone number?</summary>
+              <p>
+                Not always. The setup can be planned around the current workflow depending on how calls and texts are handled.
+              </p>
+            </details>
+
+            <details>
+              <summary>Is this marketing or operations?</summary>
+              <p>
+                This is primarily operations and lead handling — helping capture and respond to existing inbound calls faster.
+              </p>
+            </details>
+
+            <details>
+              <summary>How fast can this start?</summary>
+              <p>
+                Pilot setups can begin quickly once the business details and preferred flow are confirmed.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact">
+        <div class="section-card">
+          <h2>Contact</h2>
+          <p class="section-sub">Book a short demo or reach out directly.</p>
+
+          <div class="contact-grid">
+            <div class="contact-item">
+              <div class="k">Phone</div>
+              <div class="v">(917) 426-6063</div>
+            </div>
+            <div class="contact-item">
+              <div class="k">Email</div>
+              <div class="v">inlineharborcreations@gmail.com</div>
+            </div>
+            <div class="contact-item">
+              <div class="k">Demo Link</div>
+              <div class="v">
+                <a href="https://calendly.com/inlineharborcreations/10-minute-demo" target="_blank" rel="noopener">
+                  calendly.com/inlineharborcreations/10-minute-demo
+                </a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="k">Pilot Payment</div>
+              <div class="v">
+                <a href="https://square.link/u/wJiuVvjG" target="_blank" rel="noopener">
+                  Start 7-Day Pilot
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-actions" style="margin-top:14px;">
+            <a class="btn gold" href="https://calendly.com/inlineharborcreations/10-minute-demo" target="_blank" rel="noopener">Book Demo</a>
+            <a class="btn gray" href="https://square.link/u/wJiuVvjG" target="_blank" rel="noopener">Pay Pilot</a>
+            <a class="btn ghost" href="mailto:inlineharborcreations@gmail.com?subject=Inline Harbor Creations Inquiry">Email</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="footer">
+        © <span id="year"></span> Inline Harbor Creations • Missed Call Lead Rescue<br/>
+        Reply STOP to opt out. Reply HELP for help.
+      </div>
+    </div>
+  </main>
+
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
